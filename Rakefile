@@ -21,6 +21,8 @@ namespace :db do
 
   desc "start console"
   task :console do
+    ActiveRecord::Base.logger = Logger.new(STDOUT) # tells AR to log SQL commands
+    # ActiveRecord::Base.logger = nil # to not display SQL
     Pry.start
   end
 end
